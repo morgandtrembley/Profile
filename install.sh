@@ -9,7 +9,7 @@ apt update
 apt upgrade
 
 echo "Update finished. Installing Pre-reqs"
-while read -r p ; do apt install $p ; done < <( cat << "EOF"
+while read -r p ; do apt install -y $p ; done < <( cat << "EOF"
 	zip
 	unzip
 	make

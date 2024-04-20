@@ -1,15 +1,14 @@
 #! /usr/bin/env bash
 set -eu -o pipefail
 
-sudo -n true
-test $? -eq 0 || exit 1 "Run: sudo bash install.sh"
+echo "$HOME"
 
 echo "Updating..."
-apt update
-apt upgrade
+sudo apt update
+sudo apt upgrade
 
 echo "Update finished. Installing Pre-reqs"
-while read -r p ; do apt install -y $p ; done < <( cat << "EOF"
+while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
 	zip
 	unzip
 	make
@@ -21,13 +20,18 @@ while read -r p ; do apt install -y $p ; done < <( cat << "EOF"
 EOF
 )
 
+rm -rf neovim
 echo "Installing Neovim"
 git clone https://github.com/neovim/neovim.git
 
 cd neovim
 git checkout stable
-make CMAKE_BUILD_TYPE-RelWithDebInfo
-make install
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd ..
 
-apt update
-apt upgrade
+echo "$HOME"
+mv neovim "$HOME/neovim"
+
+sudo apt update
+sudo apt upgrade

@@ -1,8 +1,6 @@
 #! /usr/bin/env bash
 set -eu -o pipefail
 
-echo "$HOME"
-
 echo "Updating..."
 sudo apt update
 sudo apt upgrade
@@ -21,19 +19,19 @@ while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
 EOF
 )
 
-rm -rf neovim
 echo "Installing Neovim"
-git clone https://github.com/neovim/neovim.git
+rm -rf "$HOME/neovim"
+git clone https://github.com/neovim/neovim.git "$HOME/neovim"
 
-cd neovim
+cd "$HOME/neovim"
 git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
-cd ..
+cd "$HOME"
 
-echo "$HOME"
-mv neovim "$HOME/neovim"
-mv .config "$Home/.config"
+rm -rf "$HOME/.config"
+mkdir "$HOME/.config"
+cp "$HOME/Profile/.config/*" "$HOME/.config/"
 
 sudo apt update
 sudo apt upgrade

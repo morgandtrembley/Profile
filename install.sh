@@ -31,7 +31,7 @@ cd "$HOME"
 
 rm -rf "$HOME/.config"
 mkdir "$HOME/.config"
-cp "$HOME/Profile/.config/*" "$HOME/.config/"
+cp -r "$HOME/Profile/.config/" "$HOME"
 
 sudo apt update
 sudo apt upgrade

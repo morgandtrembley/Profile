@@ -33,6 +33,7 @@ cd ..
 
 echo "$HOME"
 mv neovim "$HOME/neovim"
+mv .config "$Home/.config"
 
 sudo apt update
 sudo apt upgrade

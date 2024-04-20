@@ -14,6 +14,7 @@ while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
 	make
 	cmake
 	gettext
+	ripgrep
 	curl
 	wget
 	jq

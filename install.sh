@@ -38,7 +38,7 @@ wget https://dl.google.com/go/go1.22.2.linux-amd64.tar.gz
 sudo tar -xvf go1.22.2.linux-amd64.tar.gz
 sudo mv go /usr/local
 
-curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 rm -rf "$HOME/.bashrc"
 cp "$HOME/Profile/.bashrc" "$HOME"

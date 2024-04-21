@@ -42,7 +42,6 @@ sudo mv go /usr/local
 
 
 rm -rf "$HOME/.bashrc"
-mkdir "$HOME/.bashrc"
 cp "$HOME/Profile/.bashrc" "$HOME"
 
 sudo apt update

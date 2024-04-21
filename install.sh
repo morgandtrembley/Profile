@@ -44,5 +44,8 @@ sudo mv go /usr/local
 rm -rf "$HOME/.bashrc"
 cp "$HOME/Profile/.bashrc" "$HOME"
 
+rm -rf "$HOME/.zshrc"
+cp "$HOME/Profile/.zshrc" "$HOME"
+
 sudo apt update
 sudo apt upgrade

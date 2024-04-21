@@ -33,5 +33,9 @@ rm -rf "$HOME/.config"
 mkdir "$HOME/.config"
 cp -r "$HOME/Profile/.config/" "$HOME"
 
+wget https://dl.google.com/go/go1.22.2.linux-amd64.tar.gz
+sudo tar -xvf go1.22.2.linux-amd64.tar.gz
+sudo mv go /usr/local
+
 sudo apt update
 sudo apt upgrade

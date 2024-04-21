@@ -16,6 +16,7 @@ while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
 	curl
 	wget
 	jq
+    zsh
 EOF
 )
 
@@ -36,6 +37,13 @@ cp -r "$HOME/Profile/.config/" "$HOME"
 wget https://dl.google.com/go/go1.22.2.linux-amd64.tar.gz
 sudo tar -xvf go1.22.2.linux-amd64.tar.gz
 sudo mv go /usr/local
+
+
+
+
+rm -rf "$HOME/.bashrc"
+mkdir "$HOME/.bashrc"
+cp "$HOME/Profile/.bashrc" "$HOME"
 
 sudo apt update
 sudo apt upgrade

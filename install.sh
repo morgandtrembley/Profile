@@ -20,7 +20,7 @@ while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
     fzf
     fd-find
     tmux
-    tlrc
+    tldr
     thefuck
 EOF
 )

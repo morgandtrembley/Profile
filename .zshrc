@@ -25,6 +25,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH

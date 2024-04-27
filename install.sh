@@ -17,6 +17,9 @@ while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
 	wget
 	jq
     zsh
+    fzf
+    fd-find
+    tmux
 EOF
 )
 
@@ -45,6 +48,9 @@ cp "$HOME/Profile/.bashrc" "$HOME"
 
 rm -rf "$HOME/.zshrc"
 cp "$HOME/Profile/.zshrc" "$HOME"
+
+rm -rf "$HOME/.gitconfig"
+cp "$HOME/Profile/.gitconfig" "$HOME"
 
 sudo apt update
 sudo apt upgrade

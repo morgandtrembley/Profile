@@ -2,8 +2,8 @@
 set -eu -o pipefail
 
 echo "Updating..."
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 
 echo "Update finished. Installing Pre-reqs"
 while read -r p ; do sudo apt install -y $p ; done < <( cat << "EOF"
@@ -63,6 +63,9 @@ sudo mv go /usr/local
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
 #rm -rf "$HOME/.bashrc"
 #cp "$HOME/Profile/.bashrc" "$HOME"
 
@@ -72,5 +75,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 #rm -rf "$HOME/.gitconfig"
 #cp "$HOME/Profile/.gitconfig" "$HOME"
 
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
+
+rm -rf "$HOME/go1.22.2.linux-amd64.tar.gz"
+rm -rf "$HOME/neovim"
+
+nvim
